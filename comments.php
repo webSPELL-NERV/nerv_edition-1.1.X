@@ -24,7 +24,7 @@
 #                                                                        #
 ##########################################################################
 */
-$bg1 = BG_1;
+$bg1 = "";
 function checkCommentsAllow($type, $parentID){
 	global $userID;
 	$moduls = array();
@@ -234,8 +234,13 @@ else {
 				if(isonline($ds['userID'])=="offline") $statuspic='<img src="images/icons/offline.gif" width="7" height="7" alt="offline" />';
 				else $statuspic='<img src="images/icons/online.gif" width="7" height="7" alt="online" />';
 
-				$avatar='<img src="images/avatars/'.getavatar($ds['userID']).'" align="left" alt="Avatar" />';
-
+				$avatar='<img class="img-thumbnail" src="images/avatars/'.getavatar($ds['userID']).'" align="left" alt="Avatar" />';
+				
+				$user_rang_class = "default";
+				if(isanyadmin($userID)){
+					$user_rang_class = "primary";
+				}
+				
 				if($loggedin && $ds['userID'] != $userID) {
 					$pm='<a href="index.php?site=messenger&amp;action=touser&amp;touser='.$ds['userID'].'"><img src="images/icons/pm.gif" border="0" width="12" height="13" alt="'.$_language->module['send_message'].'" /></a>';
 					if(isignored($userID, $ds['userID'])) $buddy='<a href="buddys.php?action=readd&amp;id='.$ds['userID'].'&amp;userID='.$userID.'"><img src="images/icons/buddy_readd.gif" width="16" height="16" border="0" alt="'.$_language->module['readd_buddy'].'" /></a>';
@@ -248,6 +253,7 @@ else {
 				}
 			}
 			else {
+				$user_rang_class = "default";
 				$member='';
 				$avatar='<img src="images/avatars/noavatar.gif" align="left" alt="Avatar" />';
 				$country='';
