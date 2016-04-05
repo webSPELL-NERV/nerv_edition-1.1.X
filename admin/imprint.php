@@ -74,12 +74,7 @@ else {
   <input type="radio" name="type" value="0" '.$type0.' /> '.$_language->module['automatic'].'<br />
   <input type="radio" name="type" value="1" '.$type1.' /> '.$_language->module['manual'].'<br /><br /><b>'.$_language->module['imprint'].'</b><br /><small>'.$_language->module['you_can_use_html'].'</small><br /><br />';
 	
-	echo '<table width="100%" border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-		        <td valign="top">'.$addbbcode.'</td>
-		        <td valign="top">'.$addflags.'</td>
-		      </tr>
-		    </table>';
+	echo "$addbbcode $addflags";
 	
   echo '<br /><textarea id="message" name="message" rows="30" cols="" style="width: 100%;">'.getinput($ds['imprint']).'</textarea><br /><br /><input type="hidden" name="captcha_hash" value="'.$hash.'" />
   <input type="submit" name="submit" value="'.$_language->module['update'].'" />

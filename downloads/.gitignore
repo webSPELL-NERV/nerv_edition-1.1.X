@@ -1,7 +1,7 @@
-*.zip
-*.rtf
-*.txt
-*.doc
-*.docx
+.zip
+.rtf
+.txt
+.doc
+.docx
 
-!.gitignore 
+!.gitignore

@@ -26,5 +26,5 @@
 */
 
 $version = "4.2.5";
-$nerv_version = "1.1.0a (<b>Alpha</b>)";
+$nerv_version = "1.1.0";
 ?>

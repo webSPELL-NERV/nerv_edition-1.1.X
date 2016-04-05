@@ -93,3 +93,7 @@ form {
 	padding-left: 3px;
 	white-space: nowrap;
 }
+
+.panel-primary .panel-heading a,.panel-primary .panel-heading small{
+	color: white;
+}

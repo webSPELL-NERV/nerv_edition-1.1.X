@@ -563,9 +563,9 @@ function showtopic($topic, $edit, $addreply, $quoteID, $type) {
 
 		//die($fpID. " - ". $postID);
 		
-		$first_post_class = "";
+		$first_post_class = "default";
 		if($postID == $fpID){
-			$first_post_class = "forum-topic-firstpost";
+			$first_post_class = "primary";
 		}
 		
 		$username='<a href="'.prepareUrl('index.php?site=profile&id='.$dr['poster'].'').'"><b>'.stripslashes(getnickname($dr['poster'])).'</b></a>';
