@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+@import url('mobile/xs.css') screen and (min-width: 0px) and (max-width: 479px);
+@import url('mobile/s.css') screen and (min-width: 480px) and (max-width: 767px);
+@import url('mobile/m.css') screen and (min-width: 768px) and (max-width: 1009px);
+@import url('_main.css') screen and (min-width: 1010px);

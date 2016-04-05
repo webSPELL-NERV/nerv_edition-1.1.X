@@ -1,0 +1,16 @@
+<tr $first_line>
+	<td class='td_head td$c' align='center' $first_line>$file_exists</td>
+	<td class='td_head td$c' $first_line>$id</td>
+	<td class='td_head td$c' colspan="2" $first_line>$description</td>
+	<td class='td_head td$c' $first_line>$createdate</td>
+	<td class='td_head td$c' $first_line><b>$createdby</b></td>
+	<td class='td_head td$c' $first_line align="right">$filesize <i><b>mb</b></i></td>
+	<td class='td_head td$c' align='right' $first_line><b>
+		<a href="$download_url" target="_blank" $status>
+			<input style='font-family: FontAwesome' type='submit' name='download' value='&#xf0ed;'/>
+		</a>
+		<form method='post' action='admincenter.php?site=backups&fid=$id&action=delete'>
+			<input style='font-family: FontAwesome' type='submit' name='delete' value='&#xf1f8;'/>
+		</form>
+  </b></td>
+  </tr>

@@ -1,0 +1,51 @@
+
+<!-- <div class="left-box">
+	<div class="left-headline"><i class="fa fa-sign-in"></i> Login Box</div>
+	<div class="left-content">	
+		<form method="post" name="login" action="checklogin.php"> 
+			<div class="form-group">
+				<input class="form-control" name="ws_user" type="text" size="13" value="Username" onfocus="this.value=''" style="margin:2px;" /> 
+				<input class="form-control" name="pwd" type="password" size="13" value="Password" onfocus="this.value=''" style="margin:2px;" />
+				<input class="form-control" type="submit" name="submit" value="%login%" style="margin:2px;" />
+			</div>
+		</form>
+	</div>
+	<div class="left-footer">
+		<a href="$link_register">%register_now%</a><br />
+		<a href="$link_lostpassword">%lost_password%</a><br />
+	</div>
+</div>
+ -->
+
+<div class="left-box">
+	<div class="left-headline"><i class="fa fa-sign-in"></i> Login Box</div>
+	<div class="left-content">	
+	<form method="post" name="login" action="checklogin.php">
+	<div class="alert alert-danger alert-dismissible fade in" $error_show role="alert"> 
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
+		$error_message
+	</div>
+	
+		<div class="form-group">
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+			  <input name="ws_user" type="text" placeholder="Username" class="form-control" required>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+			  <input name="pwd" type="password" placeholder="Password" class="form-control" required>
+			</div>
+		</div>
+			<div class="form-group">
+				<input type="submit" name="submit" value="%login%" class="btn btn-primary col-xs-12"><br />        
+			</div>
+		</form>
+	</div>
+	<div class="left-footer">
+		<a href="$link_register">%register_now%</a><br />
+		<a href="$link_lostpassword">%lost_password%</a><br />
+	</div>
+</div>

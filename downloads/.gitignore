@@ -1,0 +1,7 @@
+*.zip
+*.rtf
+*.txt
+*.doc
+*.docx
+
+!.gitignore 

@@ -1,0 +1,235 @@
+<div class="row">
+    <div class="col-sm-12">
+		<div style="position: relative">
+			<div id="blurUserpic" class="panel panel-default" style="text-align: center; padding: 20px;width: 100%;height: 250px;padding: 0px;border: 0px;">
+				<div class="imageeee" style="position: absolute;z-index: 9;width: 100%; text-align: center;margin-top: 45px;max-height: 250px;min-height: 250px;">
+					$userpic
+				</div>
+			</div>
+			<style>
+			.bgg2{
+			 background-size: Cover;background-color: white;
+			 position: absolute;z-index: 5;
+			 left: 0;
+			 }
+			 
+			 .imageeee img{
+				min-width: 150px;
+				max-height: 150px;
+				min-height: 150px;
+				max-width: 150px;
+			}
+		   </style>
+				<script>
+				   $('#blurUserpic').backgroundBlur({
+						imageURL : '$userpic_url',
+						blurAmount : 10,
+						imageClass : 'panel panel-default bgg2'
+					});
+				</script>
+			</div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">%personal_info%</div>
+			<div class="panel-body">
+				<table class="table">
+					<tr>
+						<td colspan="2">%personal_info%</td>
+					</tr>
+					<tr>
+						<th>%nickname%:</th>
+						<td>$nickname $member</td>
+					</tr>
+					<tr>
+						<th>%real_name%:</th>
+						<td>$firstname $lastname</td>
+					</tr>
+					<tr>
+						<th>%sexuality%:</th>
+						<td>$sex</td>
+					</tr>
+					<tr>
+						<th>%age%:</th>
+						<td>$birthday</td>
+					</tr>
+					<tr>
+						<th>%location%:</th>
+						<td>$profilecountry $town</td>
+					</tr>
+					<tr>
+						<th>%status%:</th>
+						<td>$status</td>
+					</tr>
+					<tr>
+						<th>%usertitle%:</th>
+						<td>$usertype<br>$rang $specialrank</td>
+					</tr>
+					<tr>
+						<th>%registered_since%:</th>
+						<td>$registered</td>
+					</tr>
+					<tr>
+						<th>%last_login%:</th>
+						<td>$lastlogin</td>
+					</tr>
+					<tr>
+						<th>%contact%:</th>
+						<td>$email $pm $buddy $icq</td>
+					</tr>
+					<tr>
+						<th>%homepage%:</th>
+						<td>$homepage</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+    </div>
+	<div class="col-sm-4">
+		<div class="list-group">
+			<a href="index.php?site=profile&id=$id" class="list-group-item">%profile%</a>
+			<a href="index.php?site=profile&id=$id&action=galleries" class="list-group-item">%galleries%</a>
+			<a href="index.php?site=profile&id=$id&action=buddies" class="list-group-item">%buddys%</a>
+			<a href="index.php?site=profile&id=$id&action=lastposts" class="list-group-item">%last% $profilelast %posts%</a>
+			<a href="index.php?site=profile&id=$id&action=guestbook" class="list-group-item">%guestbook%</a>
+		</div>
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">%latest_visitors% <small>($anzvisits)</small></div>
+			<div class="panel-body">
+			<table class="table">
+				$lastvisits
+			</table>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">%about%</div>
+			<div class="panel-body">$about</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">%clan_equipment%</div>
+			<div class="panel-body">
+				<table class="table">
+
+					<tbody>
+					<tr>
+						<th>%clan%:</th>
+						<td>$clanname $clantag<br>(%hp%: $clanhp)</td>
+					</tr>
+					<tr>
+						<th>%irc_channel%:</th>
+						<td>$clanirc</td>
+					</tr>
+					<tr>
+						<th>%clan_history%:</th>
+						<td>$clanhistory</td>
+					</tr>
+					<tr>
+						<th>%cpu%:</th>
+						<td>$cpu</td>
+					</tr>
+					<tr>
+						<th>%mainboard%:</th>
+						<td>$mainboard</td>
+					</tr>
+					<tr>
+						<th>%ram%:</th>
+						<td>$ram</td>
+					</tr>
+					<tr>
+						<th>%monitor%:</th>
+						<td>$monitor</td>
+					</tr>
+					<tr>
+						<th>%graphiccard%:</th>
+						<td>$graphiccard</td>
+					</tr>
+					<tr>
+						<th>%soundcard%:</th>
+						<td>$soundcard</td>
+					</tr>
+					<tr>
+						<th>%i_connection%:</th>
+						<td>$connection</td>
+					</tr>
+					<tr>
+						<th>%keyboard%:</th>
+						<td>$keyboard</td>
+					</tr>
+					<tr>
+						<th>%mouse%:</th>
+						<td>$mouse</td>
+					</tr>
+					<tr>
+						<th>%mousepad%:</th>
+						<td>$mousepad</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-sm-6">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">%statistics%</div>
+			<div class="panel-body">
+			<table class="table">
+				 <tr>
+					<th>%forumtopics%:</th>
+					<td>$anzforumtopics</td>
+				</tr>
+				<tr>
+					<th>%newsposts%:</th>
+					<td>$anznewsposts</td>
+				</tr>
+				<tr>
+					<th>%newscomments%:</th>
+					<td>$news_comments</td>
+				</tr>
+				<tr>
+					<th>%forumposts%:</th>
+					<td>$anzforumposts</td>
+				</tr>
+				<tr>
+					<th>%clanwarcomments%:</th>
+					<td>$clanwar_comments</td>
+				</tr>
+				<tr>
+					<th>%articlecomments%:</th>
+					<td>$articles_comments</td>
+				</tr>
+				<tr>
+					<th>%democomments%:</th>
+					<td>$demo_comments</td>
+				</tr>
+				<tr>
+					<th>%messenger% (%incoming%):</th>
+					<td>$pmgot</td>
+				</tr>
+				<tr>
+					<th>%messenger% (%outgoing%):</th>
+					<td>$pmsent</td>
+				</tr>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+.floatbox{
+	overflow: hidden;
+}
+
+.fltl{
+	float: left;
+}
+
+.fltr{
+	float: right;
+}

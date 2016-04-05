@@ -1,0 +1,36 @@
+<div class="left-box">
+	<div class="left-headline"><i class="fa fa-sign-in"></i> Login Box</div>
+	<div class="left-headline">
+		%welcome_back%: $username
+	</div>
+	<div class="left-content">	
+		<div style="text-align: center; position: relative; min-height: 250px;margin: -8px;" class="logged-avatar">
+			<div style="width: 100%;position: absolute; min-height: 150px;z-index: 9;margin-top: 35px;">$l_avatar</div>
+			<div id="blurlogged" style="
+   width: 100%;
+   position: absolute; 
+   min-height: 250px;
+   z-index: 5;
+   ">&nbsp;</div>
+   <style>
+	.bgg{
+	 background-size: 120%;background-color: black;}
+   </style>
+   <script>
+   $('#blurlogged').backgroundBlur({
+    imageURL : '$url_avatar',
+    blurAmount : 10,
+    imageClass : 'bgg'
+});
+</script>
+		</div><br />
+		&#8226; <a href="$url_overview">%overview%</a><br />
+		&#8226; <a href="$url_myprofile">%edit_account%</a><br />
+		&#8226; <a href="$url_messenger">%messenger%</a>$newmessages<br />
+		&#8226; <a href="$url_usergallery">%galleries%</a><br />
+		$admin
+	</div>
+	<div class="left-footer">
+		<i class="fa fa-sigh-out"></i> <a href="logout.php">%logout%</a>
+	</div>
+</div>

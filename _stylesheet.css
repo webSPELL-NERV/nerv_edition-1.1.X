@@ -1,0 +1,95 @@
+/* Forms */
+form {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  margin: 2px;
+}
+
+/* Infomessages - Miscellaneous */
+.tooltip2 {
+  position: absolute;
+  display: none;
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #DDDDDD;
+  border-left: 4px solid #0E8AEA;
+  padding: 4px 10px;
+  z-index: 100;
+}
+
+.tooltip-inner {
+    max-width: 460px;
+    /* If max-width does not work, try using width instead */
+    width: auto; 
+}
+
+.panel .panel-bbcode{
+	padding: 30px;
+}
+
+.errorbox {
+  background-color: #FFCCCC;
+  border: 1px solid #D60000;
+  color: #D60000;
+  font-size: 10px;
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+/* BBCode Tags */
+.quote {
+  color: #383838;
+  text-align: left;
+  font: normal 9px Verdana, Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  padding: 3px;
+}
+
+.list {
+	list-style-type: disc;
+	list-style-position:outside;
+}
+.list_num {
+	list-style-type: decimal;
+	list-style-position:outside;
+}
+
+.list_alpha {
+	list-style-type: lower-latin;
+	list-style-position:outside;
+}
+
+.code {
+  text-align: left;
+  margin: 0 auto;
+  padding: 3px;
+  font: normal 10px Verdana, Arial, Helvetica, sans-serif;
+}
+
+.codeinner {
+  font: 11px 'Courier New', Courier, monospace;
+}
+
+.codeline0 {
+	background-color: #F3F3F3;
+	height: 15px;
+	padding-left: 3px;
+	white-space: nowrap;
+}
+
+.codeline1 {
+	background-color: #FFFFFF;
+	height: 15px;
+	padding-left: 3px;
+	white-space: nowrap;
+}

@@ -1,0 +1,28 @@
+{"plugin":{
+		"enable":1,
+		"installed":0,
+		"info":{
+			"name":"Cookie Law",
+			"folder":"cookie_law",
+			"version":"1.0",
+			"nerv_version":"1.1.0"
+		},
+		"default_language":"de",
+		"admin":"cookie_law_admin",
+		"sites":[
+			"cookie_law_info"
+		],
+		"widgets":[
+			"cookie_law.php"
+		],
+		"styles":[
+			"style.css"
+		],
+		"scripts":[
+			"cookie_law.js"
+		],
+		"tables":[
+			"cookie_law"
+		]
+	}
+}
