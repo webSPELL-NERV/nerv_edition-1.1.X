@@ -23,9 +23,4 @@ $(document).ready(function(){
 	}else{
 		$(".cookielaw").hide();
 	}
-
-	$("#removecookie").click(function () {
-		createCookie('eucookie','eucookie',3);
-		$(".cookielaw").remove();
-	});
 });

@@ -1,0 +1,51 @@
+<!-- NO_LIST_CONTENT_START -->
+<tr>
+	<td colspan="5">%no_list_content%</td>
+</tr>
+<!-- NO_LIST_CONTENT_END -->
+
+<!-- LIST_HEADER_START -->
+<h1>&curren; Plugin Verwaltung</h1>
+<div class="table-responsive">
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr style="border-bottom: 3px solid #e3e3e3">
+				<th>Name</th>
+				<th>Version</th>
+				<th>NERV-Version</th>
+				<th>Ordner</th>
+				<th>Aktionen</th>
+			</tr>
+			<tr class="info" >
+				<td colspan="5">
+					Die Widgetboxen werden erst nach erstaufrufung der register Funktion hier angezeigt.
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+<!-- LIST_HEADER_END -->
+
+<!-- LIST_CONTENT_START -->
+		<tr>
+			<th>__name</th>
+			<td>__version</td>
+			<td Class="__is_installable">__nerv_version</td>
+			<td>__plugin_folder</td>
+			<td style="text-align: right">
+				<form class="form" method="post" action="admincenter.php?site=plugins&action=manage">
+					<button name="install" type="submit" class="btn btn-success btn-xs __install_button"><i class="fa fa-puzzle-piece"></i> Installieren</button>
+					<button name="uninstall" type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Deinstallieren</button>
+					<input type="hidden" name="plugin_folder" value="__plugin_folder" />
+				</form>
+			</td>
+		</tr>
+		<tr class="bg-default" style="border-bottom: 3px solid #e3e3e3">
+			<td colspan="6">__description</td>
+		</tr>
+<!-- LIST_CONTENT_END -->
+
+<!-- LIST_FOOTER_START -->
+		</tbody>
+	</table>
+</div>
+<!-- LIST_FOOTER_END -->

@@ -4,7 +4,7 @@
 		// WEBSPELL BASE FUNCTIONS
 		function safe_query($query){
 			include_once("_settings.php");
-			return isafe_query($query);
+			return isafe_query($query); 
 		}
 		
 		function safe_query2($query){
@@ -94,13 +94,17 @@
 			echo $redirectstring;
 		}
 		
-		public function view_template($template, $section, $variables = array()){
+		public function view_template($template, $section, $variables = array(), $variable=false){
 			$template = $this->get_Template_view($template, $section);
 			foreach($variables as $key=>$value){
 				$template = str_replace("__".$key, $value, $template);
 			}
 			$template = $GLOBALS['_language']->replace($template);
+			if($variable){
+				return $template;
+			}
 			echo $template;
+			return true;
 		}
 		
 		private function get_Template_view($template, $section, $admin = false){

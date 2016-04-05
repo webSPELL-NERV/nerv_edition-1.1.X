@@ -29,6 +29,7 @@ $index_language = $_language->module;
 	<!-- Head & Title include -->
 	<title><?php echo PAGETITLE; ?></title>
 	<script src="js/jquery-2.2.1.min.js" type="text/javascript"></script>
+	<script src="js/_nerv-core.js" type="text/javascript"></script>
 	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="js/background-blur.js" type="text/javascript"></script>
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -63,7 +64,11 @@ $index_language = $_language->module;
 
 		<?php
 			$cookie_law = new plugins("cookie_law");
-			include($cookie_law->showWidget("cookie_law"));
+			echo $cookie_law->showWidget("cookie_law.php");
+			
+			
+			$widget_menu = new plugins();
+			$widget_menu->registerWidget("top_menu","This Widgetbox is positionated upside the website");
 		?>
 
 		<?php
@@ -153,7 +158,7 @@ fclose($fp);-->
 				<?php include("latesttopics.php");?>
 				<div class="left-box">
 					<div class="left-headline">
-						<i class="fa fa-comments"></i> Letzte Headlines
+						<i class="fa fa-comments"></i> Letzte Neuigkeiten
 					</div> 
 					<?php include("sc_headlines.php");?>
 				</div>

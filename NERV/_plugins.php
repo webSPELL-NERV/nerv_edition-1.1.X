@@ -125,13 +125,55 @@ class plugins extends magi_class{
 		if($this->isComplete($plugin_folder)){
 			$plugin = $this->getInfo($plugin_folder);
 			$widgets = $plugin['widgets'];
-			if(in_array($name.".php", $widgets)){
-				$widget_file = "$plugin_path/".$name.".php";
-				return $widget_file;
+			if(in_array($name, $widgets)){
+				$widget_file = "$plugin_path/".$name;
+				include($widget_file);
+				if(isset($widget)){
+					return $widget;
+				}
 			}
 		}
 		return false;
 	}
+
+	
+	public function registerWidget($position, $description, $template_file = "default_widget_box"){
+		$select_sql = "SELECT position FROM ".PREFIX."widgets WHERE plugin_folder IS NULL && widget_file IS NULL";
+		$select_result = $this->safe_query($select_sql);
+		if(!mysqli_num_rows($select_result)>0){
+			$register_sql = "INSERT INTO ".PREFIX."widgets (position, description) VALUES ('".$position."','".$description."')";
+			$result = $this->safe_query($register_sql);
+		}else{
+			$select_all_widgets = "SELECT plugin_folder, widget_file, sort FROM ".PREFIX."widgets WHERE position LIKE '$position' AND plugin_folder IS NOT NULL && widget_file IS NOT NULL ORDER BY sort DESC";
+			$result_all_widgets = $this->safe_query($select_all_widgets);
+			$widgets_templates = "No Widgets added.";
+			$curr_widget_template = false;
+			if(mysqli_num_rows($result_all_widgets)>0){
+				$widgets_templates = "";
+				while($widget = mysqli_fetch_array($result_all_widgets)){
+					$curr_plugin_folder = $widget['plugin_folder'];
+					$curr_widget_file	= $widget['widget_file'];
+					$this->_plugin_folder = $curr_plugin_folder;
+					$curr_widget_template = $this->showWidget($curr_widget_file);
+					if($curr_widget_template){
+						$content = $curr_widget_template;
+						$widgets_templates .= $this->view_template($template_file, "widget_box", array(
+							"widgets_templates" => $content
+						), true);
+					}
+				}
+			}
+			if($curr_widget_template){
+				$this->view_template($template_file, "header");
+				$variables = array(
+					"widgets_templates" => $widgets_templates
+				);
+				$this->view_template($template_file, "content", $variables);
+				$this->view_template($template_file, "footer");
+			}
+		}
+	}
+
 	
 	public function view($template, $section, $variables = array()){
 		$template = $this->get_Template($template, $section);
