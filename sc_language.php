@@ -85,10 +85,10 @@ else {
 			if($_SERVER['QUERY_STRING']) $querystring = "&amp;query=".rawurlencode($_SERVER['QUERY_STRING']);
 			echo '<a href="sc_language.php?new_lang='.$lang[0].$querystring.'" title="'.$lang[1].'">';
 			if($_language->language == $lang[0]){
-				 echo '<img src="images/haken.gif" alt="'.$lang[1].'" border="0" style="background-image:url(\'images/flags/'.$lang[0].'.gif\'); background-position: center;" />';
+				echo '<img src="images/flags/'.$lang[0].'.gif" alt="'.$lang[1].'" border="0" class=""/>';
 			}	 
 			else { 
-				echo '<img src="images/flags/'.$lang[0].'.gif" alt="'.$lang[1].'" border="0" />';
+				echo '<img src="images/bw.png" alt="'.$lang[1].'" border="0" style="background-image:url(\'images/flags/'.$lang[0].'.gif\'); background-position: center;" class=""/>';
 			} 	
 			echo "</a> ";
 		}
