@@ -1,0 +1,15 @@
+div.cookielaw{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+div.cookielaw p span{
+	padding-top: 20px;
+}
+
+div.cookielaw button{
+		margin: 5px;
+}

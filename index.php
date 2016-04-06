@@ -48,7 +48,7 @@ $index_language = $_language->module;
 					header.css("position", "fixed");
 					header.css("top", "0");
 					header.css("z-index", "999");
-					header.css("width", "1100px");
+					header.css("width", "100%");
 				}
 			}else{
 				$("#invisDist").css("height", "0px");
@@ -65,10 +65,6 @@ $index_language = $_language->module;
 		<?php
 			$cookie_law = new plugins("cookie_law");
 			echo $cookie_law->showWidget("cookie_law.php");
-			
-			
-			$widget_menu = new plugins();
-			$widget_menu->registerWidget("top_menu","This Widgetbox is positionated upside the website");
 		?>
 
 		<?php
@@ -142,7 +138,7 @@ fclose($fp);-->
 		
 		
 		<div class="wrapper content floatbox container-fluid">
-			<div class="content-left col-sm-4">
+			<div class="content-left col-sm-4 col-md-3 col-lg-3">
 				<div class="left-box">
 					<div class="left-headline">
 						<i class="fa fa-bars"></i> Menu
@@ -155,18 +151,15 @@ fclose($fp);-->
 					</div>
 				</div>
 				<?php include("login.php");?>
-				<?php include("latesttopics.php");?>
-				<div class="left-box">
-					<div class="left-headline">
-						<i class="fa fa-comments"></i> Letzte Neuigkeiten
-					</div> 
-					<?php include("sc_headlines.php");?>
-				</div>
+				<?php
+					$widget_menu = new plugins();
+					$widget_menu->registerWidget("left_menu","This Widgetbox is positionated on the left of the content", "vertical_widget_box");
+				?>
 			</div> 
-			<div class="content-right col-sm-8">
+			<div class="content-right col-sm-8 col-md-6 col-lg-6">
 				<?php if($urlDecode_Error){ ?>
 					<blockquote>
-						<?php echo $urlDecode_Error; ?>
+						<?php echo $urlDecode_Error; ?> 
 					</blockquote>
 				<?php } ?>
 			
@@ -181,6 +174,12 @@ fclose($fp);-->
 					}
 					include($site.".php");
 					?>
+			</div>
+			<div class="col-sm-12 col-md-3 col-lg-3">
+				<?php
+					$widget_menu = new plugins();
+					$widget_menu->registerWidget("right_menu","This Widgetbox is positionated on the right of the", "vertical_widget_box");
+				?>
 			</div>
 		</div>
 		
@@ -199,10 +198,10 @@ fclose($fp);-->
 				</div>
 				<div class="under-box">
 					<div class="row">
-						<div class="col-sm-9">
+						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
 							<?php include("about.php");?>
 						</div>
-						<div class="col-sm-3">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 							<?php
 								$footer_menu = new navigations("vertical");
 								$footer_menu->register("footer_menu", "Dieses Menu befindet sich im Footer");

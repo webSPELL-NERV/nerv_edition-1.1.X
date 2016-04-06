@@ -54,7 +54,7 @@ html{
 }
 
 body{
-	max-width: 1100px;
+	max-width: 100%;
 -webkit-box-shadow: 0px 0px 17px 3px rgba(220,220,220,1);
 -moz-box-shadow: 0px 0px 17px 3px rgba(220,220,220,1);
 box-shadow: 0px 0px 17px 3px rgba(220,220,220,1);
@@ -80,7 +80,7 @@ body{
 }
 
 .wrapper{
-	max-width: 1050px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -107,22 +107,33 @@ small{
 	height: 100px;
 	width: 100%;
 	background-color: #f1f1f1;
+-webkit-box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
+-moz-box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
+box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
+
 }
 
 .header .line1{
+	padding-left: 10px;
+	padding-right: 10px;
 	height: 60%;
 	line-height: 60px;
 	width: 100%;
 	
-	background-color: #525564;
+	background-color: #0090e3;
 	color: white;
 }
 
+.header .line1 .logo:before{
+	font-family: FontAwesome;
+	Content:"\f105";
+	padding-right: 5px;
+}
 
 .header .line1 .logo{
 	font-family: titillium_bold;
-	font-size: 18px;
-	color: #BEB9B5;
+	font-size: 22px;
+	color: #FFF;
 }
 
 .header .line1 .nerv-logo{
@@ -130,7 +141,7 @@ small{
 }
 
 .header .line1 .powered a{
-	color: #BEB9B5;
+	color: #FFF;
 	font-family: titillium_bold;
 }
 
@@ -138,8 +149,8 @@ small{
 	height: 40%;
 	line-height: 40px;
 	width: 100%;
-	border-bottom: 2px solid #C25B56;
-	background-color: #74828F;
+	/* border-bottom: 2px solid #0090e3; */
+	background-color: #003366;
 }
 
 .navigation-horizontal{
@@ -170,12 +181,33 @@ small{
 }
 
 .navigation-horizontal ul li:hover {
-	background-color: #C25B56;
+	background-color: #0090e3;
 	color: white;
 }
 
 .navigation-horizontal ul li:hover i{
 	color: white;
+}
+
+.navigation-horizontal .mobile-bars{
+	color: white;
+	padding-right: 20px;
+	padding-left: 20px;
+	display: none;
+	cursor: pointer;
+}
+
+.navigation-horizontal .left{
+	float: left;
+	font-family: titillium_bold;
+}
+
+.navigation-horizontal .right{
+	float: right;
+}
+
+.navigation-horizontal .right:hover{
+	color: #337AB7;
 }
 
 .title{
@@ -186,7 +218,7 @@ small{
 }
 
 .navigation-horizontal .selected{
-	background-color: #C25B56;
+	background-color: #0090e3;
 	color: white;
 }
 
@@ -211,6 +243,10 @@ small{
 .navigation-vertical ul{
 	margin: 0px;
 	padding: 0px;
+}
+
+.navigation-vertical .mobile-bars{
+	display: none;
 }
 
 .navigation-vertical ul li{
