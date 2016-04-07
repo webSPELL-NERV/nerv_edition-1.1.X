@@ -101,6 +101,7 @@ small{
 	height: 40px;
 	background-color: #222;
 	line-height: 40px;
+	padding-left: 5px;
 }
 
 .header{
@@ -150,7 +151,8 @@ box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
 	line-height: 40px;
 	width: 100%;
 	/* border-bottom: 2px solid #0090e3; */
-	background-color: #003366;
+	/* background-color: #003366; */
+	background-color: #333;
 }
 
 .navigation-horizontal{
@@ -410,3 +412,18 @@ h2{
 	float: right;
 }
 .white-link a{color: white;}
+
+.panel-bbcode .row .row1 .btn{
+	width: 14.28%;
+}
+
+.panel-bbcode .row .row2 .btn-group{
+	width: 20%;
+}
+
+.panel-bbcode .row .row2 .btn{
+	width: 100%;
+}
+.panel-bbcode .btn-group{
+	display: inline;
+}

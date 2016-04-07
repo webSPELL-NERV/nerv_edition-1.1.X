@@ -150,10 +150,9 @@ fclose($fp);-->
 						?>
 					</div>
 				</div>
-				<?php include("login.php");?>
 				<?php
 					$widget_menu = new plugins();
-					$widget_menu->registerWidget("left_menu","This Widgetbox is positionated on the left of the content", "vertical_widget_box");
+					$widget_menu->registerWidget("Left_Side_Widget","This box is on the left", "vertical_widget_box");
 				?>
 			</div> 
 			<div class="content-right col-sm-8 col-md-6 col-lg-6">
@@ -178,7 +177,7 @@ fclose($fp);-->
 			<div class="col-sm-12 col-md-3 col-lg-3">
 				<?php
 					$widget_menu = new plugins();
-					$widget_menu->registerWidget("right_menu","This Widgetbox is positionated on the right of the", "vertical_widget_box");
+					$widget_menu->registerWidget("Right_Side_Widget","This box is on the right", "vertical_widget_box");
 				?>
 			</div>
 		</div>
@@ -213,7 +212,7 @@ fclose($fp);-->
 		</div>
 		<div class="copyright">
 			<div class="wrapper">
-				Copyright <i class="fa fa-copyright"></i> 2015-2016 by <a href="http://www.webspell-nerv.gq"><b>www.webspell-nerv.gq</b></a>
+				Copyright <i class="fa fa-copyright"></i> 2015-2016 by <a href="http://www.webspell-nerv.de"><b>www.webspell-nerv.de</b></a>
 			</div>
 		</div>
 </body>

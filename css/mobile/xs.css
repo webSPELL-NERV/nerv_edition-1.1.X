@@ -2,7 +2,10 @@
 	height: auto;
 	width: 100%;
 	background-color: #f1f1f1;
+}
 
+.header .line1 .powered{
+	display: none;
 }
 
 .navigation-horizontal{

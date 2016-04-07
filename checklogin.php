@@ -41,13 +41,13 @@ $sleep = 1; //idle status for script if password is wrong?
 //settings end
 $_language->read_module('checklogin');
 
-$get = safe_query("SELECT * FROM ".PREFIX."banned_ips WHERE ip='".$GLOBALS['ip']."'");
-if(mysql_num_rows($get) == 0){
+$get = isafe_query("SELECT * FROM ".PREFIX."banned_ips WHERE ip='".$GLOBALS['ip']."'");
+if(mysqli_num_rows($get) == 0){
 	$ws_pwd = md5(stripslashes($_POST['pwd']));
 	$ws_user = $_POST['ws_user'];
 	
-	$check = safe_query("SELECT * FROM ".PREFIX."user WHERE username='".$ws_user."'");
-	$anz = mysql_num_rows($check);
+	$check = isafe_query("SELECT * FROM ".PREFIX."user WHERE username='".$ws_user."'");
+	$anz = mysqli_num_rows($check);
 	$login = 0;
 	
 	if(!$closed_tmp AND !isset($_SESSION['ws_sessiontest'])) {
@@ -56,10 +56,10 @@ if(mysql_num_rows($get) == 0){
 	else {
 		if($anz) {
 		
-			$check = safe_query("SELECT * FROM ".PREFIX."user WHERE username='".$ws_user."' AND activated='1'");
-			if(mysql_num_rows($check)) {
+			$check = isafe_query("SELECT * FROM ".PREFIX."user WHERE username='".$ws_user."' AND activated='1'");
+			if(mysqli_num_rows($check)) {
 		
-				$ds=mysql_fetch_array($check);
+				$ds=mysqli_fetch_array($check);
 		
 				// check password
 				$login = 0;
@@ -74,28 +74,28 @@ if(mysql_num_rows($get) == 0){
 					//cookie
 					setcookie("ws_auth", $ds['userID'].":".$ws_pwd, time()+($sessionduration*60*60));					
 					//Delete visitor with same IP from whoisonline
-					safe_query("DELETE FROM ".PREFIX."whoisonline WHERE ip='".$GLOBALS['ip']."'");
+					isafe_query("DELETE FROM ".PREFIX."whoisonline WHERE ip='".$GLOBALS['ip']."'");
 					//Delete IP from failed logins
-					safe_query("DELETE FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
+					isafe_query("DELETE FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
 					$login = 1;
 					$error = $_language->module['login_successful'];
 				}
 				elseif(!($ws_pwd == $ds['password'])) {
 					if($sleep) sleep(5);
-					$get = safe_query("SELECT wrong FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
-					if(mysql_num_rows($get)){
-						safe_query("UPDATE ".PREFIX."failed_login_attempts SET wrong = wrong+1 WHERE ip = '".$GLOBALS['ip']."'");
+					$get = isafe_query("SELECT wrong FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
+					if(mysqli_num_rows($get)){
+						isafe_query("UPDATE ".PREFIX."failed_login_attempts SET wrong = wrong+1 WHERE ip = '".$GLOBALS['ip']."'");
 					}
 					else{
-						safe_query("INSERT INTO ".PREFIX."failed_login_attempts (ip,wrong) VALUES ('".$GLOBALS['ip']."',1)");
+						isafe_query("INSERT INTO ".PREFIX."failed_login_attempts (ip,wrong) VALUES ('".$GLOBALS['ip']."',1)");
 					}
-					$get = safe_query("SELECT wrong FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
-					if(mysql_num_rows($get)){
-						$ban = mysql_fetch_assoc($get);
+					$get = isafe_query("SELECT wrong FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
+					if(mysqli_num_rows($get)){
+						$ban = mysqli_fetch_assoc($get);
 						if($ban['wrong'] == $max_wrong_pw){
 							$bantime = time() + (60*60*3); // 3 hours
-							safe_query("INSERT INTO ".PREFIX."banned_ips (ip,deltime,reason) VALUES ('".$GLOBALS['ip']."',".$bantime.",'Possible brute force attack')");
-							safe_query("DELETE FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
+							isafe_query("INSERT INTO ".PREFIX."banned_ips (ip,deltime,reason) VALUES ('".$GLOBALS['ip']."',".$bantime.",'Possible brute force attack')");
+							isafe_query("DELETE FROM ".PREFIX."failed_login_attempts WHERE ip = '".$GLOBALS['ip']."'");
 						}
 					}
 					$_SESSION['ws_login']['error'] = $_language->module['invalid_password'];
@@ -109,7 +109,7 @@ if(mysql_num_rows($get) == 0){
 }
 else{
 	$login = 0;
-	$data = mysql_fetch_assoc($get);
+	$data = mysqli_fetch_assoc($get);
 	$_SESSION['ws_login']['error'] = str_replace('%reason%', $data['reason'], $_language->module['ip_banned']);
 }
 

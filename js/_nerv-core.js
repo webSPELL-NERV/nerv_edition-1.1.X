@@ -10,4 +10,13 @@ function ajaxExecute($url,$back_url){
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
+	
+	$('.horizontal .mobile-bars i').click(function(){
+		var ul = $(".horizontal-bars").next("ul");
+		if(ul.is(":visible")){
+			ul.slideUp("fast");
+		}else{
+			ul.slideDown("fast");
+		}
+	});
 });
