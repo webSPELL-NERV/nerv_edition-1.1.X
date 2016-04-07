@@ -15,7 +15,8 @@
 		"sites":[],
 		"widgets":[
 					"headlines_widget.php",
-					"forumtopics_widget.php"
+					"forumtopics_widget.php",
+					"login_widget.php"
 				  ],
 		"styles":["style.css"],
 		"scripts":[],

@@ -1,22 +1,15 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<b>BBCODE</b>
+		<style>
+			.dropdown-menu a{
+				cursor: pointer;
+			}
+		</style>
 	</div>
 	<div class="panel-body panel-bbcode">
 		<div class="row">
-			<div class="btn-group" role="group" aria-label="Basic example">
-			  <div class="btn-group" role="group">
-				<button id="btnGroupDrop1" type="button" class="btn btn-warning btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  Formatting
-				</button>
-				<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-				  <a class="dropdown-item col-lg-12" accesskey="b" value="B" onclick="AddB()">Bold</a>
-				  <a class="dropdown-item col-lg-12" accesskey="u" value="U" onclick="AddU()">Underlined</a>
-				  <a class="dropdown-item col-lg-12" accesskey="i" value="I" onclick="AddI()">Italic</a>
-				  <a class="dropdown-item col-lg-12" accesskey="s" value="S" onclick="AddS()">Serif</a>
-				</div>
-			  </div>
-
+			<div class="btn-group row1" role="group" aria-label="Short tags">
 			  <input class="btn btn-secondary btn-primary" type="button" accesskey="e" value=" @ " onclick="AddLink('EMAIL')" data-toggle="tooltip" title="[EMAIL=you@yoursite.com]My email address[/EMAIL]" />
 			  <input class="btn btn-secondary btn-primary" type="button" accesskey="w" value="URL" onclick="AddLink('URL')" data-toggle="tooltip" title="[URL=http://yoursite.com]My website[/URL]" />
 			  <input class="btn btn-secondary btn-primary" type="button" accesskey="p" value="IMG" onclick="AddImg()" data-toggle="tooltip" title="[IMG]http://yoursite.com/image.jpg[IMG]" />
@@ -24,66 +17,94 @@
 			  <input class="btn btn-secondary btn-primary" type="button" accesskey="g" value="GIST" onclick="AddGist()" data-toggle="tooltip" title="[GIST]https://gist.github.com/youruser/4ff8ea070432c252515240fcbd15a9d[/GIST]"/>
 			  <input class="btn btn-secondary btn-primary" type="button" accesskey="l" value="List" onclick="AddList()" data-toggle="tooltip" title="[LIST=a][*]point 1[/*][*]point 2[/*][/LIST] [LIST=1][*]point 1[/*][*]point 2[/*][/LIST]"  />
 			  <input class="btn btn-secondary btn-primary" type="button" accesskey="q" value="Quote" onclick="AddQuote()" data-toggle="tooltip" title="[QUOTE=Nickname]Quote[/QUOTE]" />
-			  <input class="btn btn-secondary btn-primary" type="button" accesskey="c" value="Code" onclick="AddCodetag()" />
-			  <input class="btn btn-secondary btn-primary" type="button" accesskey="t" value="Toggle" onclick="AddToggle()" data-toggle="tooltip" title="[TOGGLE=Read more]Full Text[/TOGGLE]" />
 			</div>
 		</div>  
+		<div class="row">
 		
-		<select class="col-sm-4 form-control" name="fontcolor" onchange="AddTag('[COLOR=' + this.options[this.selectedIndex].value + ']', '[/COLOR]', '');this.selectedIndex='0';">
-			<option value="0">%color%</option>
-			<option value="#87CEEB" style="color:#87CEEB;">%skyblue%</option>
-			<option value="#4169E1" style="color:#4169E1;">%royalblue%</option>
-			<option value="#0000FF" style="color:#0000FF;">%blue%</option>
-			<option value="#00008B" style="color:#00008B;">%darkblue%</option>
-			<option value="#FFA500" style="color:#FFA500;">%orange%</option>
-			<option value="#FF4500" style="color:#FF4500;">%orangered%</option>
-			<option value="#DC143C" style="color:#DC143C;">%crimson%</option>
-			<option value="#FF0000" style="color:#FF0000;">%red%</option>
-			<option value="#B22222" style="color:#B22222;">%firebrick%</option>
-			<option value="#8B0000" style="color:#8B0000;">%darkred%</option>
-			<option value="#008000" style="color:#008000;">%green%</option>
-			<option value="#32CD32" style="color:#32CD32;">%limegreen%</option>
-			<option value="#2E8B57" style="color:#2E8B57;">%seagreen%</option>
-			<option value="#FF1493" style="color:#FF1493;">%deeppink%</option>
-			<option value="#FF6347" style="color:#FF6347;">%tomato%</option>
-			<option value="#FF7F50" style="color:#FF7F50;">%coral%</option>
-			<option value="#800080" style="color:#800080;">%purple%</option>
-			<option value="#4B0082" style="color:#4B0082;">%indigo%</option>
-			<option value="#DEB887" style="color:#DEB887;">%burlywood%</option>
-			<option value="#F4A460" style="color:#F4A460;">%sandybrown%</option>
-			<option value="#A0522D" style="color:#A0522D;">%sienna%</option>
-			<option value="#D2691E" style="color:#D2691E;">%chocolate%</option>
-			<option value="#008080" style="color:#008080;">%teal%</option>
-			<option value="#C0C0C0" style="color:#C0C0C0;">%silver%</option>
-		  </select> 
-		  
-		  <select class="col-sm-4 form-control " name="fontsize" onchange="AddTag('[SIZE=' + this.options[this.selectedIndex].value + ']', '[/SIZE]', '');this.selectedIndex='0';">
-			<option value="0">%size%</option>
-			<option value="1">%tiny%</option>
-			<option value="2">%small%</option>
-			<option value="3">%normal%</option>
-			<option value="4">%large%</option>
-			<option value="5">%huge%</option>
-		  </select> 
-		  
-		  <select class="col-sm-4 form-control" name="font" onchange="AddTag('[FONT=' + this.options[this.selectedIndex].value + ']', '[/FONT]', '');this.selectedIndex='0';">
-			<option value="0">%font%</option>
-			<option value="arial">Arial</option>
-			<option value="comic sans ms">Comic</option>
-			<option value="courier">Courier</option>
-			<option value="courier new">Courier New</option>
-			<option value="tahoma">Tahoma</option>
-			<option value="times new roman">Times New Roman</option>
-			<option value="verdana">Verdana</option>
-		  </select> 
+		<div class="btn-group row2" role="group" aria-label="Text formatting">
+			<div class="btn-group" role="group">
+				<button id="btnGroupDrop1" type="button" class="btn btn-success btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Formatting
+				</button>
+				<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+				  <a class="dropdown-item col-lg-12" accesskey="b" value="B" onclick="AddB()"><font style="font-weight: bold;">Bold</font></a><br>
+				  <a class="dropdown-item col-lg-12" accesskey="u" value="U" onclick="AddU()"><font style="font-style: underline;">Underlined</font></a><br>
+				  <a class="dropdown-item col-lg-12" accesskey="i" value="I" onclick="AddI()"><font style="font-style: italic;">Italic</font></a><br>
+				  <a class="dropdown-item col-lg-12" accesskey="s" value="S" onclick="AddS()"><font style="text-decoration: line-through;">Serif</font></a><br>
+				</div>
+			  </div>
+			<div class="btn-group" role="group">
+				<button id="btnGroupDrop1" type="button" class="btn btn-success btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  %color%
+				</button>
+				<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+				  <a class="dropdown-item col-lg-12" style="color:#87CEEB;" onclick="AddTag('[COLOR=#87CEEB]', '[/COLOR]', '');">%skyblue%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#4169E1;" onclick="AddTag('[COLOR=#4169E1]', '[/COLOR]', '');">%royalblue%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#0000FF;" onclick="AddTag('[COLOR=#0000FF]', '[/COLOR]', '');">%blue%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#FFA500;" onclick="AddTag('[COLOR=#FFA500]', '[/COLOR]', '');">%orange%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#FF4500;" onclick="AddTag('[COLOR=#FF4500]', '[/COLOR]', '');">%orangered%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#DC143C;" onclick="AddTag('[COLOR=#DC143C]', '[/COLOR]', '');">%crimson%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#FF0000;" onclick="AddTag('[COLOR=#FF0000]', '[/COLOR]', '');">%red%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#B22222;" onclick="AddTag('[COLOR=#B22222]', '[/COLOR]', '');">%firebrick%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#8B0000;" onclick="AddTag('[COLOR=#8B0000]', '[/COLOR]', '');">%darkred%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#008000;" onclick="AddTag('[COLOR=#008000]', '[/COLOR]', '');">%green%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#32CD32;" onclick="AddTag('[COLOR=#32CD32]', '[/COLOR]', '');">%limegreen%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#2E8B57;" onclick="AddTag('[COLOR=#2E8B57]', '[/COLOR]', '');">%seagreen%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#FF1493;" onclick="AddTag('[COLOR=#FF1493]', '[/COLOR]', '');">%deeppink%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#FF6347;" onclick="AddTag('[COLOR=#FF6347]', '[/COLOR]', '');">%tomato%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#FF7F50;" onclick="AddTag('[COLOR=#FF7F50]', '[/COLOR]', '');">%coral%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#800080;" onclick="AddTag('[COLOR=#800080]', '[/COLOR]', '');">%purple%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#4B0082;" onclick="AddTag('[COLOR=#4B0082]', '[/COLOR]', '');">%indigo%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#DEB887;" onclick="AddTag('[COLOR=#DEB887]', '[/COLOR]', '');">%burlywood%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#F4A460;" onclick="AddTag('[COLOR=#F4A460]', '[/COLOR]', '');">%sandybrown%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#A0522D;" onclick="AddTag('[COLOR=#A0522D]', '[/COLOR]', '');">%sienna%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#D2691E;" onclick="AddTag('[COLOR=#D2691E]', '[/COLOR]', '');">%chocolate%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#008080;" onclick="AddTag('[COLOR=#008080]', '[/COLOR]', '');">%teal%</a><br>
+				  <a class="dropdown-item col-lg-12" style="color:#C0C0C0;" onclick="AddTag('[COLOR=#C0C0C0]', '[/COLOR]', '');">%silver%</a><br>
+				</div>
+			</div>
 			
-		<select class="col-sm-4 form-control" name="align" onchange="AddTag('[ALIGN=' + this.options[this.selectedIndex].value + ']', '[/ALIGN]', '');this.selectedIndex='0';">
-			<option value="0">%align%</option>
-			<option value="center">%center%</option>
-			<option value="left">%left%</option>
-			<option value="right">%right%</option>
-			<option value="justify">%justify%</option>
-		  </select>
+			<div class="btn-group" role="group">
+				<button id="btnGroupDrop1" type="button" class="btn btn-success btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				 %size%
+				</button>
+				<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[SIZE=1]', '[/SIZE]', '');"><font size="1">%tiny%</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[SIZE=2]', '[/SIZE]', '');"><font size="2">%small%</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[SIZE=3]', '[/SIZE]', '');"><font size="3">%normal%</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[SIZE=4]', '[/SIZE]', '');"><font size="4">%large%</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[SIZE=5]', '[/SIZE]', '');"><font size="5">%huge%</font></a><br>
+				</div>
+			</div>
+			
+			<div class="btn-group" role="group">
+				<button id="btnGroupDrop1" type="button" class="btn btn-success btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				 %font%
+				</button>
+				<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[FONT=arial]', '[/FONT]', '');"><font style="font-family:'arial'">Arial</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[FONT=comic sans ms]', '[/FONT]', '');"><font style="font-family:'comic sans ms'">Comic</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[FONT=courier]', '[/FONT]', '');"><font style="font-family:'courier'">Courier</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[FONT=courier new]', '[/FONT]', '');"><font style="font-family:'courier new'">Courier New</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[FONT=tahoma]', '[/FONT]', '');"><font style="font-family:'tahoma'">Tahoma</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[FONT=times new roman]', '[/FONT]', '');"><font style="font-family:'times new roman'">Times New Roman</font></a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[FONT=verdana]', '[/FONT]', '');"><font style="font-family:'verdana'">Verdana</font></a><br>
+				</div>
+			</div>
+			
+			<div class="btn-group" role="group">
+				<button id="btnGroupDrop1" type="button" class="btn btn-success btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				 %align%
+				</button>
+				<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[ALIGN=center]', '[/ALIGN]', '');">%center%</a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[ALIGN=left]', '[/ALIGN]', '');">%left%</a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[ALIGN=right]', '[/ALIGN]', '');">%right%</a><br>
+					<a class="dropdown-item col-lg-12" onclick="AddTag('[ALIGN=justify]', '[/ALIGN]', '');">%justify%</a><br>
+				</div>
+			</div>
+		</div>
+		</div>
 	</div>
 </div>
 

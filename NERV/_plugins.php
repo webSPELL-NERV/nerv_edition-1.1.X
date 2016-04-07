@@ -4,6 +4,7 @@ include_once("../_magi_class.php");
 class plugins extends magi_class{
 	var $_plugin_folder = "";
 	var $_current_language = "";
+	var $_fallback = "uk";
 	
 	function plugins($plugin_folder = ""){
 		$this->_plugin_folder = $plugin_folder;
@@ -119,7 +120,7 @@ class plugins extends magi_class{
 		return $scripts;
 	}
 	
-	public function showWidget($name){
+	public function showWidget($name, $curr_id = ""){
 		$plugin_folder = $this->_plugin_folder;
 		$plugin_path   = "plugins/$plugin_folder";
 		if($this->isComplete($plugin_folder)){
@@ -144,17 +145,18 @@ class plugins extends magi_class{
 			$register_sql = "INSERT INTO ".PREFIX."widgets (position, description) VALUES ('".$position."','".$description."')";
 			$result = $this->safe_query($register_sql);
 		}else{
-			$select_all_widgets = "SELECT plugin_folder, widget_file, sort FROM ".PREFIX."widgets WHERE position LIKE '$position' AND plugin_folder IS NOT NULL && widget_file IS NOT NULL ORDER BY sort ASC";
+			$select_all_widgets = "SELECT id,plugin_folder, widget_file, sort FROM ".PREFIX."widgets WHERE position LIKE '$position' AND plugin_folder IS NOT NULL && widget_file IS NOT NULL ORDER BY sort ASC";
 			$result_all_widgets = $this->safe_query($select_all_widgets);
 			$widgets_templates = "<div class='panel-body'>No Widgets added.</div>";
 			$curr_widget_template = false;
 			if(mysqli_num_rows($result_all_widgets)>0){
 				$widgets_templates = "";
 				while($widget = mysqli_fetch_array($result_all_widgets)){
+					$curr_id 	= $widget['id'];
 					$curr_plugin_folder = $widget['plugin_folder'];
 					$curr_widget_file	= $widget['widget_file'];
 					$this->_plugin_folder = $curr_plugin_folder;
-					$curr_widget_template = $this->showWidget($curr_widget_file);
+					$curr_widget_template = $this->showWidget($curr_widget_file, $curr_id);
 					if($curr_widget_template){
 						$content = $curr_widget_template;
 						$widgets_templates .= $this->view_template($template_file, "widget_box", array(
@@ -376,7 +378,9 @@ class plugins extends magi_class{
 	}
 	
 	public function replaceLanguage($inputString){
+		$lang_array_fallback = $this->getLanguageFile($this->_fallback);
 		$lang_array = $this->getLanguageFile($this->_current_language);
+		$lang_array = array_merge($lang_array_fallback, $lang_array);
 		foreach($lang_array as $control=>$word){
 			$inputString = str_replace("%".$control."%", $word, $inputString);
 		}
@@ -384,7 +388,9 @@ class plugins extends magi_class{
 	}
 	
 	public function getTranslation($inputControl){
+		$lang_array_fallback = $this->getLanguageFile($this->_fallback);
 		$lang_array = $this->getLanguageFile($this->_current_language);
+		$lang_array = array_merge($lang_array_fallback, $lang_array);
 		if(array_key_exists ( $inputControl , $lang_array )){
 			return $lang_array[$inputControl];
 		}
