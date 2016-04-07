@@ -25,9 +25,12 @@
 ##########################################################################
 */
 
-include("../_mysql.php");
-include("../_settings.php");
-include("../_functions.php");
+chdir("../");
+
+include("_mysql.php");
+include("_settings.php");
+include("_functions.php");
+
 
 $_language->read_module('visitor_statistic_image');
 
