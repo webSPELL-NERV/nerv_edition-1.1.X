@@ -9,8 +9,9 @@ include_once("../_magi_class.php");
 			$this->nav_direction = $direction;
 		}
 		
-		function register($navigation_name, $navigation_description = "", $user_id = 1){
+		function register($navigation_name, $navigation_description = "", $user_id = 1, $isWidget = false){
 			$nav_id = $this->getIDOfNavigation($navigation_name);
+			$echo = "";
 			if(!$nav_id){
 				$this->insertNewNavigation($navigation_name, $navigation_description, $user_id);
 				$this->show_error("'$navigation_name' wurde angelegt.");
@@ -20,7 +21,9 @@ include_once("../_magi_class.php");
 					if($childs && count($childs)>0){
 						$navigationType = $this->nav_direction;
 						eval ("\$navigations_header = \"".$this->gettemplate("navigations_header")."\";");
-						echo $navigations_header;
+						if(!$isWidget){
+								echo $navigations_header;
+							}else{$echo = $navigations_header;}
 
 						foreach($childs as $child){
 							$is_selected = ""; // selected
@@ -33,11 +36,15 @@ include_once("../_magi_class.php");
 							$content 		= $child['content'];
 							$id 			= $child['id'];
 							eval ("\$navigations_content = \"".$this->gettemplate("navigations_content")."\";");
-							echo $navigations_content;
+							if(!$isWidget){
+								echo $navigations_content;
+							}else{$echo = $navigation_content;}
 						}
 						
 						eval ("\$navigations_footer = \"".$this->gettemplate("navigations_footer")."\";");
-						echo $navigations_footer;
+						if(!$isWidget){
+								echo $navigations_footer;
+							}else{$echo = $navigations_footer;}
 					}else{
 						return false;
 					}

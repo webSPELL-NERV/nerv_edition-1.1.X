@@ -33,7 +33,7 @@ if(!isset($_GET['page'])) $page = '';
 else $page = (int)$_GET['page'];
 if(!isset($_GET['action'])) $action = '';
 else $action = $_GET['action'];
-
+$kath_div = "";
 function forum_stats() {
 	$pagebg=PAGEBG;
 	$border=BORDER;
@@ -280,6 +280,8 @@ function boardmain() {
 
 			$i++;
 		}
+		echo "</table></div></div>";
+		
 	}
 
 	// BOARDS OHNE KATEGORIE
@@ -490,7 +492,7 @@ function showboard($board) {
 	$moderators=getmoderators($board);
 	if($moderators) $moderators='('.$_language->module['moderated_by'].': '.$moderators.')';
 
-	$actions='<a href="'.prepareUrl('index.php?site=search').'">'.$_language->module['search_image'].'</a>';
+	$actions='<a class="btn btn-info white-link" href="'.prepareUrl('index.php?site=search').'"><i class="fa fa-search"></i></a>';
 	if($loggedin) {
 		$mark='&#8226; <a href="'.prepareUrl('index.php?site=forum&board='.$board.'&action=markall').'">'.$_language->module['mark_topics_read'].'</a>';
 		if($writer) $actions.=' <a href="'.prepareUrl('index.php?site=forum&addtopic=true&board='.$board).'">'.$_language->module['newtopic_image'].'</a>';

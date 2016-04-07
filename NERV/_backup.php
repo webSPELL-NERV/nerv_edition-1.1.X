@@ -133,13 +133,7 @@ class backup extends magi_class{
 		$handle = fopen($dir.$filename.'.sql','w+');
 		fwrite($handle,$return);
 		fclose($handle);
-		if($this->create_zip(array($dir.$filename.".sql"),$dir.$filename.".zip", true)){
-			return $filename;
-		}else{
-			return "Fehler, ZIP nicht erstellt ...";
-		}
-		array_map('unlink', glob($dir."*.sql"));
-		//return $filename;
+		return $filename;
 	}
 	
 	// creates a zip from file array

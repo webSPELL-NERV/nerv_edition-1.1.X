@@ -97,3 +97,11 @@ form {
 .panel-primary .panel-heading a,.panel-primary .panel-heading small{
 	color: white;
 }
+
+a.btn{
+	color: white !important;
+}
+
+a.btn.btn-default{
+	color: #333 !important;
+}

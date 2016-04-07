@@ -1,120 +1,120 @@
-<!-- NO_LIST_CONTENT_START -->
-<tr>
-	<td colspan="5">%no_list_content%</td>
-</tr>
-<!-- NO_LIST_CONTENT_END -->
-
-<!-- HEADER_START -->
-<h1>&curren; Widget Verwaltung</h1>
-<div class="alert bg-info">
-	%widget_header_information%
-</div>
-<!-- HEADER_END --> 
-
-<!-- ####################################################################################################################### -->
-
-<!-- WIDGET_TR_HEADER_START -->
-<form method="post" action="admincenter.php?site=widgets&action=managemulti">
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<th><small>%plugin_folder%</small></th>
-			<th><small>%widget_file%</small></th>
-			<th><small>%createdate%</small></th>
-			<th><small>%sort%</small></th>
-			<th><small>%actions%</small></th>
-		</tr>
-	</thead>
-	<tbody>
-<!-- WIDGET_TR_HEADER_END -->
-
-<!-- WIDGET_TR_START -->
-	<tr>
-		<td class="text-center">__plugin_folder</td>
-		<td class="text-center">__widget_file</td>
-		<td class="text-center">__createdate</td>
-		<td class="row">
-				__sort
-		</td>
-		<td class="text-center"><button name="delete_row" class="btn btn-danger" value="__id"><i class="fa fa-trash"></i></button></td>
-	</tr>
-<!-- WIDGET_TR_END -->
- 
-<!-- WIDGET_TR_FOOTER_START -->
-	</tbody>
-	<tfoot>
-		<tr>
-			<td colspan="3">
-			</td>
-			<td>
-				<button name="sorting" class="btn btn-info col-sm-12">%sorting% <i class="fa fa-sort"></i></button>
-			</td>
-			<td></td>
-		</tr>
-	</tfoot>
-</table>
-</form>
-<!-- WIDGET_TR_FOOTER_END -->
- 
-<!-- ####################################################################################################################### -->
- <!-- NEW_WIDGET_FORM_START -->
-<form class="form col-sm-8" method="post" action="admincenter.php?site=widgets&action=manage">
-	<input type="hidden" name="position" value="__position" />
-	<input type="hidden" name="add" value="justdoit" />
-	<div class="form-group row text-right">
-		<label class="control-label col-sm-4">%sort%</label>
-		<div class="col-sm-8">
-			__sort
-		</div>
-	</div>
-	<div class="form-group row text-right">
-		<label class="control-label col-sm-4">%avaible_widgets%</label>
-		<div class="col-sm-8">
-			__avaible_widgets
-		</div>
-	</div>
-	<div class="form-group row text-right">
-		<div class="col-sm-4">
-		</div>
-		<div class="col-sm-8">
-			<input type="submit" name="save" class="form-control btn btn-success" value="%save%" />
-		</div>
-	</div>
-</form>
- <!-- NEW_WIDGET_FORM_END -->
-<!-- ####################################################################################################################### -->
- 
-<!-- POSITION_HEADER_START -->
-	<table class="table table-bordered table-hover table-striped">
-		<thead>
-			<tr>
-				<th>__position (__count)</th>
-				<th>__description</th>
-				<th>__createdate</th>
-				<th>
-					<form method="post" action="admincenter.php?site=widgets&action=manage">
-						<input type="hidden" name="position" value="__position"/>
-						<button type="submit" name="delete" class="btn btn-danger"><i class="fa fa-trash"></i></button>&nbsp;
-						<button type="submit" name="add" class="btn btn-success"><i class="fa fa-plus-circle"></i></button>
-					</form>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-<!-- POSITION_HEADER_END -->
-
-<!-- POSITION_CONTENT_START -->
-		<tr>
-			<td colspan="4">
-				__widget_templates
-			</td>
-		</tr>
-<!-- POSITION_CONTENT_END -->
-
-<!-- POSITION_FOOTER_START -->
-		</tbody>
-	</table>
-<!-- POSITION_FOOTER_END -->
-
-<!-- ####################################################################################################################### -->
+<!-- NO_LIST_CONTENT_START -->
+<tr>
+	<td colspan="5">%no_list_content%</td>
+</tr>
+<!-- NO_LIST_CONTENT_END -->
+
+<!-- HEADER_START -->
+<h1>&curren; Widget Verwaltung</h1>
+<div class="alert bg-info">
+	%widget_header_information%
+</div>
+<!-- HEADER_END --> 
+
+<!-- ####################################################################################################################### -->
+
+<!-- WIDGET_TR_HEADER_START -->
+<form method="post" action="admincenter.php?site=widgets&action=managemulti">
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th><small>%plugin_folder%</small></th>
+			<th><small>%widget_file%</small></th>
+			<th><small>%createdate%</small></th>
+			<th><small>%sort%</small></th>
+			<th><small>%actions%</small></th>
+		</tr>
+	</thead>
+	<tbody>
+<!-- WIDGET_TR_HEADER_END -->
+
+<!-- WIDGET_TR_START -->
+	<tr>
+		<td class="text-center">__plugin_folder</td>
+		<td class="text-center">__widget_file</td>
+		<td class="text-center">__createdate</td>
+		<td class="row">
+				__sort
+		</td>
+		<td class="text-center"><button name="delete_row" class="btn btn-danger" value="__id"><i class="fa fa-trash"></i></button></td>
+	</tr>
+<!-- WIDGET_TR_END -->
+ 
+<!-- WIDGET_TR_FOOTER_START -->
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3">
+			</td>
+			<td>
+				<button name="sorting" class="btn btn-info col-sm-12">%sorting% <i class="fa fa-sort"></i></button>
+			</td>
+			<td></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+<!-- WIDGET_TR_FOOTER_END -->
+ 
+<!-- ####################################################################################################################### -->
+ <!-- NEW_WIDGET_FORM_START -->
+<form class="form col-sm-8" method="post" action="admincenter.php?site=widgets&action=manage">
+	<input type="hidden" name="position" value="__position" />
+	<input type="hidden" name="add" value="justdoit" />
+	<div class="form-group row text-right">
+		<label class="control-label col-sm-4">%sort%</label>
+		<div class="col-sm-8">
+			__sort
+		</div>
+	</div>
+	<div class="form-group row text-right">
+		<label class="control-label col-sm-4">%avaible_widgets%</label>
+		<div class="col-sm-8">
+			__avaible_widgets
+		</div>
+	</div>
+	<div class="form-group row text-right">
+		<div class="col-sm-4">
+		</div>
+		<div class="col-sm-8">
+			<input type="submit" name="save" class="form-control btn btn-success" value="%save%" />
+		</div>
+	</div>
+</form>
+ <!-- NEW_WIDGET_FORM_END -->
+<!-- ####################################################################################################################### -->
+ 
+<!-- POSITION_HEADER_START -->
+	<table class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>__position (__count)</th>
+				<th>__description</th>
+				<th>__createdate</th>
+				<th>
+					<form method="post" action="admincenter.php?site=widgets&action=manage">
+						<input type="hidden" name="position" value="__position"/>
+						<button type="submit" name="delete" class="btn btn-danger"><i class="fa fa-trash"></i></button>&nbsp;
+						<button type="submit" name="add" class="btn btn-success"><i class="fa fa-plus-circle"></i></button>
+					</form>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+<!-- POSITION_HEADER_END -->
+
+<!-- POSITION_CONTENT_START -->
+		<tr>
+			<td colspan="4">
+				__widget_templates
+			</td>
+		</tr>
+<!-- POSITION_CONTENT_END -->
+
+<!-- POSITION_FOOTER_START -->
+		</tbody>
+	</table>
+<!-- POSITION_FOOTER_END -->
+
+<!-- ####################################################################################################################### -->
  

@@ -101,6 +101,7 @@ small{
 	height: 40px;
 	background-color: #222;
 	line-height: 40px;
+	padding-left: 5px;
 }
 
 .header{
@@ -150,7 +151,8 @@ box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
 	line-height: 40px;
 	width: 100%;
 	/* border-bottom: 2px solid #0090e3; */
-	background-color: #003366;
+	/* background-color: #003366; */
+	background-color: #333;
 }
 
 .navigation-horizontal{
@@ -301,8 +303,9 @@ box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
 }
 
 .footer{
-	border-top: 1px solid #e6e6e6;
 	margin-top: 20px;
+	background-color: #333;
+	color: white;
 }
 
 .footer .inner .upper-line{
@@ -310,7 +313,7 @@ box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
 	padding-right: 10px;
 	height: 50px;
 	line-height: 50px;
-	border-bottom: 1px solid #e6e6e6;
+	border-bottom: 1px solid #555;
 }
 
 .footer .inner .upper-line .social-links i{
@@ -319,7 +322,7 @@ box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
 }
 
 .footer .inner .upper-line .social-links a{
-	color: #333;
+	color: #fff;
 	display: block;
 	float: left;
 	margin-top: 16px;
@@ -334,13 +337,32 @@ box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
 .footer .inner .under-box{
 	padding: 10px;
 	line-height: 30px;
-	border-bottom: 1px solid #e6e6e6;
+	border-bottom: 1px solid #555;
 }
+
+.footer .page-header{
+	border-bottom: 1px solid #555;
+}
+
+.footer .navigation-vertical .vertical ul li{
+	border-bottom: 1px solid #555;
+}
+
+.footer .navigation-vertical .vertical ul li i{
+	border-right: 1px solid #444;
+	width: 30px;
+	text-align: right;
+}
+
 
 .copyright{
 	line-height: 40px;
 	padding-left: 10px;
 	background-color: #222;
+	color: white;
+}
+
+.footer a{
 	color: white;
 }
 
@@ -410,3 +432,30 @@ h2{
 	float: right;
 }
 .white-link a{color: white;}
+
+.panel-bbcode .row .row1 .btn{
+	width: 14.28%;
+}
+
+.panel-bbcode .row .row2 .btn-group{
+	width: 20%;
+}
+
+.panel-bbcode .row .row2 .btn{
+	width: 100%;
+}
+.panel-bbcode .btn-group{
+	display: inline;
+}
+
+.ws-lose-color{
+	color: red;
+}
+
+.ws-draw-color{
+	color: orange;
+}
+
+.ws-win-color{
+	color: green;
+}

@@ -1,75 +1,78 @@
-.header{
-	height: auto;
-	width: 100%;
-	background-color: #f1f1f1;
-
-}
-
-.navigation-horizontal{
-	overflow: hidden;
-}
-
-.navigation-horizontal .mobile-bars{
-	display: block;
-}
-
-.navigation-horizontal ul{
-	margin: 0px;
-	padding: 0px;
-	display: none;
-	width: 100%;
-}
-
-.navigation-horizontal ul li a{
-	color: #FEF6EB;
-}
-
-.navigation-horizontal ul li i{
-	margin-right: 5px;
-	color: #FEF6EB;
-}
-
-.navigation-horizontal ul li {
-	list-style: none;
-	display: block;
-	float: left;
-	line-height: 40px;
-	padding-right: 10px;
-	padding-left: 10px;
-	width: 100%;
-}
-
-.navigation-horizontal ul li:hover {
-	background-color: #0090e3;
-	color: white;
-}
-
-.navigation-horizontal ul li:hover i{
-	color: white;
-}
-
-.title{
-	background-color: #FFF;
-	color: #337AB7;
-	height: 30px;
-	line-height: 30px;
-}
-
-.navigation-horizontal .selected{
-	background-color: #0090e3;
-	color: white;
-}
-
-.navigation-horizontal .selected a{
-	color: white;
-	font-family: titillium_bold;
-}
-
-.navigation-horizontal .selected i{
-	color: white;
-}
-
-
-.navigation-horizontal ul li:hover a{
-	color: white;
+.header{
+	height: auto;
+	width: 100%;
+	background-color: #f1f1f1;
+}
+
+.header .line1 .powered{
+	display: none;
+}
+
+.navigation-horizontal{
+	overflow: hidden;
+}
+
+.navigation-horizontal .mobile-bars{
+	display: block;
+}
+
+.navigation-horizontal ul{
+	margin: 0px;
+	padding: 0px;
+	display: none;
+	width: 100%;
+}
+
+.navigation-horizontal ul li a{
+	color: #FEF6EB;
+}
+
+.navigation-horizontal ul li i{
+	margin-right: 5px;
+	color: #FEF6EB;
+}
+
+.navigation-horizontal ul li {
+	list-style: none;
+	display: block;
+	float: left;
+	line-height: 40px;
+	padding-right: 10px;
+	padding-left: 10px;
+	width: 100%;
+}
+
+.navigation-horizontal ul li:hover {
+	background-color: #0090e3;
+	color: white;
+}
+
+.navigation-horizontal ul li:hover i{
+	color: white;
+}
+
+.title{
+	background-color: #FFF;
+	color: #337AB7;
+	height: 30px;
+	line-height: 30px;
+}
+
+.navigation-horizontal .selected{
+	background-color: #0090e3;
+	color: white;
+}
+
+.navigation-horizontal .selected a{
+	color: white;
+	font-family: titillium_bold;
+}
+
+.navigation-horizontal .selected i{
+	color: white;
+}
+
+
+.navigation-horizontal ul li:hover a{
+	color: white;
 }

@@ -6,11 +6,11 @@
 			include_once("_settings.php");
 			return isafe_query($query); 
 		}
-		
-		function safe_query2($query){
-			include_once("_settings.php");
-			return safe_query2($query);
-		}
+		
+		function safe_query2($query){
+			include_once("_settings.php");
+			return safe_query2($query);
+		}
 		
 		function gettemplate($template,$endung="html", $calledfrom="root") {
 			include_once("_settings.php");
@@ -75,23 +75,23 @@
 			$ini += strlen($start);
 			$len = strpos($string, $end, $ini) - $ini;
 			return substr($string, $ini, $len);
-		}
-		
-		function redirect_with_message($title, $content, $url, $time,$subline="", $type = "primary"){
-			eval ("\$messagebox = \"".$this->gettemplate("messagebox")."\";");
-			echo $messagebox;
-			$this->redirect($url, $time);
 		}
 		
-		function redirect($url, $time = 0){
-			$redirectstring = "
-			<script>
-				setTimeout(function () {
-				   window.location.href= '$url'; 
-				},$time);
-			</script>
-			";
-			echo $redirectstring;
+		function redirect_with_message($title, $content, $url, $time,$subline="", $type = "primary"){
+			eval ("\$messagebox = \"".$this->gettemplate("messagebox")."\";");
+			echo $messagebox;
+			$this->redirect($url, $time);
+		}
+		
+		function redirect($url, $time = 0){
+			$redirectstring = "
+			<script>
+				setTimeout(function () {
+				   window.location.href= '$url'; 
+				},$time);
+			</script>
+			";
+			echo $redirectstring;
 		}
 		
 		public function view_template($template, $section, $variables = array(), $variable=false){

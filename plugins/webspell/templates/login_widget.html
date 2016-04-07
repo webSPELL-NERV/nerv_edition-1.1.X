@@ -1,0 +1,71 @@
+<!-- LOGGED_HEADER_START -->
+<div class="panel panel-info">
+	<div class="panel-heading">
+		%login_header%
+	</div>
+	<div class="panel-body">
+<!-- LOGGED_HEADER_END -->
+
+<!-- LOGGED_CONTENT_START -->
+	<div class="left-headline">
+		%welcome_back%: __username
+	</div>
+		<div class="panel-footer" style="width: 100%; min-height: 150px;z-index: 9;margin-top: 35px;text-align: center;">__l_avatar</div>
+		<div class="panel-body">
+		<i class="fa fa-th-large"></i> <a href="__url_overview">%overview%</a><br />
+		<i class="fa fa-pencil-square-o"></i> <a href="__url_myprofile">%edit_account%</a><br />
+		<i class="fa fa-comments-o"></i> <a href="__url_messenger">%messenger%</a>__newmessages<br />
+		<i class="fa fa-picture-o"></i>  <a href="__url_usergallery">%galleries%</a><br />
+		__admin
+		</div>
+<!-- LOGGED_CONTENT_END -->
+
+<!-- LOGGED_FOOTER_START -->
+	</div>
+	<div class="panel-footer">
+		<i class="fa fa-sign-out"></i> <a href="logout.php">%logout%</a>
+	</div>
+</div>
+<!-- LOGGED_FOOTER_END -->
+
+<!-- LOGIN_FORM_HEADER_START -->
+<div class="panel panel-info">
+	<div class="panel-heading">
+		%login_header%
+	</div>
+	<div class="panel-body">
+<!-- LOGIN_FORM_HEADER_END -->
+
+<!-- LOGIN_FORM_CONTENT_START -->
+	<form method="post" name="login" action="checklogin.php">
+	<div class="alert alert-danger alert-dismissible fade in" __error_show role="alert"> 
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button> 
+		__error_message
+	</div>
+	<div class="form-group">
+		<div class="input-group">
+		  <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+		  <input name="ws_user" type="text" placeholder="Username" class="form-control" required>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="input-group">
+		  <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+		  <input name="pwd" type="password" placeholder="Password" class="form-control" required>
+		</div>
+	</div>
+		<div class="form-group">
+			<input type="submit" name="submit" value="%login%" class="btn btn-primary col-xs-12"><br />        
+		</div>
+	</form>
+<!-- LOGIN_FORM_CONTENT_END -->
+
+<!-- LOGIN_FORM_FOOTER_START -->
+	</div>
+	<div class="panel-footer">
+		<a href="__link_register">%register_now%</a><br />
+		<a href="__link_lostpassword">%lost_password%</a><br />
+	</div>
+</div>
+<!-- LOGIN_FORM_FOOTER_END -->
