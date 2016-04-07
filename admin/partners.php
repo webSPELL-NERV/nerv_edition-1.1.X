@@ -58,12 +58,17 @@ elseif(isset($_POST['save'])) {
 		$name = $_POST['name'];
 		$url = $_POST['url'];
 		$banner = $_FILES['banner'];
+
+		if(isset($_POST["isSpecial"])) $isSpecial = $_POST['isSpecial'];
+		else $isSpecial="";
+		if(!$isSpecial) $isSpecial=0;
+		
 		if(isset($_POST["displayed"])) $displayed = $_POST['displayed'];
 		else $displayed="";
 		if(!$displayed) $displayed=0;
 	
-		safe_query("INSERT INTO ".PREFIX."partners ( name, url, displayed, date, sort )
-		             values( '$name', '$url', '".$displayed."', '".time()."', '1' )");
+		safe_query("INSERT INTO ".PREFIX."partners ( name, url,isSpecial,displayed, date, sort )
+		             values( '$name', '$url',$isSpecial, '".$displayed."', '".time()."', '1' )");
 		$id=mysql_insert_id();
 	
 		$filepath = "../images/partners/";
@@ -110,6 +115,11 @@ elseif(isset($_POST['saveedit'])) {
 		if(isset($_POST["displayed"])) $displayed = $_POST['displayed'];
 		else $displayed="";
 		if(!$displayed) $displayed=0;
+		
+		if(isset($_POST["isSpecial"])) $isSpecial = $_POST['isSpecial'];
+		else $isSpecial="";
+		if(!$isSpecial) $isSpecial=0;
+		
 		$partnerID = $_POST['partnerID'];
 		$id=$partnerID;
 		
@@ -145,7 +155,7 @@ elseif(isset($_POST['saveedit'])) {
 				die('<b>'.$error.'</b><br /><br /><a href="admincenter.php?site=partners&amp;action=edit&amp;partnerID='.$id.'">&laquo; '.$_language->module['back'].'</a>');
 			}
 		}
-		safe_query("UPDATE ".PREFIX."partners SET name='$name', url='$url', displayed='".$displayed."' WHERE partnerID='$partnerID' ");
+		safe_query("UPDATE ".PREFIX."partners SET name='$name', url='$url', displayed='".$displayed."', isSpecial='".$isSpecial."' WHERE partnerID='$partnerID' ");
 	} else echo $_language->module['transaction_invalid'];
 }
 
@@ -177,6 +187,10 @@ if($action=="add") {
       <td><b>'.$_language->module['is_displayed'].'</b></td>
       <td><input type="checkbox" name="displayed" value="1" checked="checked" /></td>
     </tr>
+	<tr>
+      <td><b>Is Special</b></td>
+      <td><input type="checkbox" name="isSpecial" value="0" /></td>
+    </tr>
     <tr>
       <td><input type="hidden" name="captcha_hash" value="'.$hash.'" /></td>
       <td><input type="submit" name="save" value="'.$_language->module['add_partner'].'" /></td>
@@ -198,6 +212,9 @@ elseif($action=="edit") {
   
   if($ds['displayed']=='1') $displayed='<input type="checkbox" name="displayed" value="1" checked="checked" />';
   else $displayed='<input type="checkbox" name="displayed" value="1" />';
+  
+  if($ds['isSpecial']=='1') $isSpecial='<input type="checkbox" name="isSpecial" value="1" checked="checked" />';
+  else $isSpecial='<input type="checkbox" name="isSpecial" value="1" />';
   
 	echo'<form method="post" action="admincenter.php?site=partners" enctype="multipart/form-data">
   <table width="100%" border="0" cellspacing="1" cellpadding="3">
@@ -221,6 +238,10 @@ elseif($action=="edit") {
       <td><b>'.$_language->module['is_displayed'].'</b></td>
       <td>'.$displayed.'</td>
     </tr>
+	<tr>
+      <td><b>Is Special</b></td>
+      <td>'.$isSpecial.'</td>
+    </tr>
     <tr>
       <td><input type="hidden" name="captcha_hash" value="'.$hash.'" /><input type="hidden" name="partnerID" value="'.$partnerID.'" /></td>
       <td><input type="submit" name="saveedit" value="'.$_language->module['edit_partner'].'" /></td>
@@ -240,12 +261,13 @@ else {
     <tr>
       <td width="42%" class="title"><b>'.$_language->module['partners'].'</b></td>
       <td width="15%" class="title"><b>'.$_language->module['clicks'].'</b></td>
-      <td width="15%" class="title"><b>'.$_language->module['is_displayed'].'</b></td>
+      <td width="7.5%" class="title"><b>'.$_language->module['is_displayed'].'</b></td>
+	  <td width="7.5%" class="title"><b>Special</b></td>
       <td width="20%" class="title"><b>'.$_language->module['actions'].'</b></td>
       <td width="8%" class="title"><b>'.$_language->module['sort'].'</b></td>
     </tr>';
 
-	$partners=safe_query("SELECT * FROM ".PREFIX."partners ORDER BY sort");
+	$partners=safe_query("SELECT * FROM ".PREFIX."partners ORDER BY isSpecial DESC, sort ASC");
 	$anzpartners=safe_query("SELECT count(partnerID) FROM ".PREFIX."partners");
 	$anzpartners=mysql_result($anzpartners, 0);
 	$CAPCLASS = new Captcha;
@@ -261,6 +283,7 @@ else {
     else { $td='td2'; }
     
     $db['displayed']==1 ? $displayed='<font color="green"><b>'.$_language->module['yes'].'</b></font>' : $displayed='<font color="red"><b>'.$_language->module['no'].'</b></font>';
+	$db['isSpecial']==1 ? $isSpecial='<font color="green"><b>'.$_language->module['yes'].'</b></font>' : $isSpecial='<font color="red"><b>'.$_language->module['no'].'</b></font>';
     
     $days=round((time()-$db['date'])/(60*60*24));
     if($days) $perday=round($db['hits']/$days,2);
@@ -270,6 +293,7 @@ else {
       <td class="'.$td.'"><a href="'.getinput($db['url']).'" target="_blank">'.getinput($db['name']).'</a></td>
       <td class="'.$td.'">'.$db['hits'].' ('.$perday.')</td>
       <td class="'.$td.'" align="center">'.$displayed.'</td>
+	   <td class="'.$td.'" align="center">'.$isSpecial.'</td>
       <td class="'.$td.'" align="center"><input type="button" onclick="MM_goToURL(\'parent\',\'admincenter.php?site=partners&amp;action=edit&amp;partnerID='.$db['partnerID'].'\');return document.MM_returnValue" value="'.$_language->module['edit'].'" />
       <input type="button" onclick="MM_confirm(\''.$_language->module['really_delete'].'\', \'admincenter.php?site=partners&amp;delete=true&amp;partnerID='.$db['partnerID'].'&amp;captcha_hash='.$hash.'\')" value="'.$_language->module['delete'].'" /></td>
       <td class="'.$td.'" align="center">
@@ -287,7 +311,7 @@ else {
          
 	}
 	echo'<tr class="td_head">
-      <td colspan="5" align="right"><input type="hidden" name="captcha_hash" value="'.$hash_2.'" /><input type="submit" name="sortieren" value="'.$_language->module['to_sort'].'" /></td>
+      <td colspan="6" align="right"><input type="hidden" name="captcha_hash" value="'.$hash_2.'" /><input type="submit" name="sortieren" value="'.$_language->module['to_sort'].'" /></td>
     </tr>
   </table>
   </form>';

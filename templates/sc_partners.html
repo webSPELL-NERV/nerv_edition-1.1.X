@@ -1,1 +1,13 @@
-<a href="out.php?partnerID=$db[partnerID]" target="_blank">$text</a><br />
+<div class="panel panel-$isSpecial">
+	<div class="panel-heading">
+		<b>$title</b>
+	</div>
+	<div class="panel-body">
+		<a class="thumbnail text-center" href="out.php?partnerID=$db[partnerID]">
+			<img src="$img" class="img-rounded img-responsive"/>
+		</a>
+	</div>
+	<div class="panel-footer">
+		<a href="out.php?partnerID=$db[partnerID]" target="_blank">$url</a>
+	</div>
+</div>

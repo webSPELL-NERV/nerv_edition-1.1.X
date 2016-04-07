@@ -25,14 +25,22 @@
 ##########################################################################
 */
 
-$ergebnis=safe_query("SELECT * FROM ".PREFIX."partners WHERE displayed = '1' ORDER BY sort");
+$ergebnis=safe_query("SELECT * FROM ".PREFIX."partners WHERE displayed = '1' ORDER BY isSpecial DESC, sort ASC");
 if(mysql_num_rows($ergebnis)) {
 	while($db=mysql_fetch_array($ergebnis)) {
 		$partnerID = $db['partnerID'];
 		$banner = $db['banner'];
+		$isSpecial = $db['isSpecial'];
+		if($isSpecial){
+			$isSpecial = "primary";
+		}else{
+			$isSpecial = "default";
+		}
+		
 		$alt = htmlspecialchars($db['name']);
 		$title = htmlspecialchars($db['name']);
 		$img = 'images/partners/'.$db['banner'];
+		$url = $db['url'];
 		$name = $db['name'];
 		$img_str = '<img src="images/partners/'.$db['banner'].'" style="margin:2px 0;" border="0" alt="'.$alt.'" title="'.$title.'" />';
 		if(is_file($img) && file_exists($img)){
