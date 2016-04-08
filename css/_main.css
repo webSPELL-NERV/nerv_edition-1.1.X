@@ -134,11 +134,16 @@ box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.39);
 .header .line1 .logo{
 	font-family: titillium_bold;
 	font-size: 22px;
-	color: #FFF;
+	color: #FFF;text-shadow: 2px 2px 5px #0B5AE3;
 }
 
 .header .line1 .nerv-logo{
 	padding-left: 10px;
+	text-shadow: 2px 2px 5px #0B5AE3;
+}
+
+.header .line1 .powered{
+	text-shadow: 2px 2px 5px #0B5AE3;
 }
 
 .header .line1 .powered a{
@@ -446,7 +451,6 @@ h2{
 }
 .panel-bbcode .btn-group{
 	display: inline;
-<<<<<<< HEAD
 }
 
 .ws-lose-color{
@@ -459,6 +463,4 @@ h2{
 
 .ws-win-color{
 	color: green;
-=======
->>>>>>> origin/master
 }

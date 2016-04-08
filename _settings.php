@@ -326,7 +326,7 @@ function isafe_query($query = "")
 function system_error($text,$system=1) {
 	if($system) {
 		include('version.php');
-		$info='webSPELL Version: '.$version.'<br />PHP Version: '.phpversion().'<br />MySQL Version: '.mysql_get_server_info().'<br />';
+		$info='<b>webSPELL Version:</b> '.$version.'<br /><b>PHP Version:</b> '.phpversion().'<br /><b>MySQL Version:</b> '.mysqli_get_server_info().'<br /><hr>';
 	} else {
 		$info = '';
 	}
@@ -339,22 +339,23 @@ function system_error($text,$system=1) {
 	  <meta name="keywords" content="webspell, webspell4, clan, cms" />
 	  <meta name="copyright" content="Copyright &copy; 2005 - 2011 by webspell.org" />
 	  <meta name="generator" content="webSPELL" />
+	  <script src="js/jquery-2.2.1.min.js" type="text/javascript"></script>
+	<script src="js/_nerv-core.js" type="text/javascript"></script>
+	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/background-blur.js" type="text/javascript"></script>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	  <title>webSPELL</title>
   </head>
-  <body>
-  <center>
-  <table border="0" cellpadding="1" cellspacing="1" bgcolor="#fff" style="border: 1px solid #f0f0f0">
-    <tr>
-      <td><a href="http://www.webspell.org" target="_blank"><img src="images/banner.gif" style="border:none;" alt="webSPELL.org" title="webSPELL.org" /></a></td>
-    </tr>
-    <tr bgcolor="#fff">
-      <td><div style="color:#333333;font-family:Tahoma,Verdana,Arial;font-size:11px;padding:5px;">'.$info.'<br /><font color="red">'.$text.'</font><br />&nbsp;</div></td>
-    </tr>
-    <tr bgcolor="#fff">
-      <td><div style="color:#333333;font-family:Tahoma,Verdana,Arial;font-size:11px;padding:5px;">For support visit <a href="http://webspell.org" target="_blank">webspell.org</a></div></td>
-    </tr>
-  </table>
-  </center>
+  <body style="width: 480px; margin: 0 auto;margin-top: 30px">
+  <div class="panel panel-primary">
+	<div class="panel-heading"><b>A System error appears!</b><br><small>Oww! we catched an error, look here:</small></div>
+	<div class="panel-body">
+		<div style="color:#333333;font-family:Tahoma,Verdana,Arial;font-size:11px;padding:5px;">'.$info.'<br />
+			<div class="alert alert-danger" style="font-weight: bold">'.$text.'!</div>
+			</div>
+	  </div>
+	  <div class="panel-footer">For support visit <a href="http://www.webspell-nerv.de" target="_blank"><b>www.webspell-nerv.de</b></a></div>
+	 </div>
   </body>
   </html>');
 }
